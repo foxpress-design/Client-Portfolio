@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Work</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f0c87e, #f07eb0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .card {
+      background: #141420;
+      border: 1px solid #1e1e30;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3a3a5c;
+    }
+
+    .card .thumbnail {
+      height: 160px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .thumbnail img {
+      transform: scale(1.04);
+    }
+
+    .card .info {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card .info h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .card .info p {
+      font-size: 0.875rem;
+      color: #888;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #1e1e30;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #444;
+      font-size: 0.8rem;
+      line-height: 2;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Client Work</h1>
+    <p>A collection of projects I've built for clients</p>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    <div><span id="count"></span></div>
+    <div>Developed by <a href="mailto:philip@foxpress.design?subject=Hey Philip">Philip Fox Jones</a> (<a href="https://foxpress.design">foxpress.design</a>)</div>
+    <div>
+      <a href="https://games.foxpress.io">Games</a> &middot;
+      <a href="https://software.foxpress.io">Software</a>
+    </div>
+  </footer>
+
+  <script>
+    const items = [
+      {
+        title: "Cabinet Craft & Design",
+        description: "Portfolio and lead-generation site for a custom cabinetry and home renovation company in Campbellford, Ontario.",
+        screenshot: "screenshots/cabinetcraft.jpg",
+        url: "http://glhiholdings.ca",
+        tags: ["local business", "vanilla js", "leaflet.js", "seo"],
+      },
+      {
+        title: "Maya Bastian",
+        description: "Professional portfolio for an independent filmmaker and content creator, featuring films, writing, and press materials.",
+        screenshot: "screenshots/mayabastian.jpg",
+        url: "http://mayabastian.com",
+        tags: ["portfolio", "html/css", "film"],
+      },
+      {
+        title: "Subfolder",
+        description: "A macOS app that uses AI to instantly organize your files. Drop a folder, get a plan, approve it, done.",
+        screenshot: "screenshots/subfolder.jpg",
+        url: "https://subfolder.app",
+        tags: ["macOS", "swiftui", "ai"],
+      },
+      {
+        title: "Asphodel-Norwood Public Library",
+        description: "Website for a public library serving Norwood and Westwood, Ontario, including digital resources, programming, and membership.",
+        screenshot: "screenshots/anpl.jpg",
+        url: "http://staging.anpl.org",
+        tags: ["library", "astro", "public sector"],
+      },
+      {
+        title: "Hastings Roseneath Food Bank",
+        description: "Community website for a local food bank facilitating donations, volunteer sign-ups, and client access to services.",
+        screenshot: "screenshots/foodbank.jpg",
+        url: "http://hastingsfoodbank.foxpress.io",
+        tags: ["non-profit", "wordpress", "community"],
+      },
+      {
+        title: "Listenable Music",
+        description: "A digital tribute to James Campbell (AIA), a minimal experimental techno artist. Built with React and Vite.",
+        screenshot: "screenshots/listenablemusic.jpg",
+        url: "http://listenablemusic.ca",
+        tags: ["tribute", "react", "vite"],
+      },
+    ];
+
+    const grid = document.getElementById("grid");
+    const countEl = document.getElementById("count");
+
+    countEl.textContent = `${items.length} project${items.length !== 1 ? "s" : ""}`;
+
+    items.forEach((item) => {
+      const card = document.createElement(item.url ? "a" : "div");
+      if (item.url) {
+        card.href = item.url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+      }
+      card.className = "card";
+      card.innerHTML = `
+        <div class="thumbnail">
+          <img src="${item.screenshot}" alt="${item.title} screenshot" loading="lazy" />
+        </div>
+        <div class="info">
+          <h2>${item.title}</h2>
+          <p>${item.description}</p>
+          <div class="tags">
+            ${item.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
