@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.3 - 2026-03-02
+- Fix broken thumbnails: remove screenshots/ from .gitignore so images deploy to GitHub Pages
+
 ## 1.0.2 - 2026-02-28
 - Add CNAME for custom domain portfolio.foxpress.io
 
