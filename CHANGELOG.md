@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4 - 2026-03-04
+- Update screenshot for mayabastian.com
+
 ## 1.0.3 - 2026-03-02
 - Fix broken thumbnails: remove screenshots/ from .gitignore so images deploy to GitHub Pages
 
