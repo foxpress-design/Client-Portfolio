@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.5 - 2026-03-05
+- Update Hastings Food Bank URL to hastingsfoodbank.org
+
 ## 1.0.4 - 2026-03-04
 - Update screenshot for mayabastian.com
 
