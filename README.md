@@ -20,7 +20,7 @@ A macOS app that uses AI to instantly organize your files. Visit [subfolder.app]
 
 ### Asphodel-Norwood Public Library
 ![Asphodel-Norwood Public Library](screenshots/anpl.jpg)
-Website for a public library serving Norwood and Westwood, Ontario. Visit [anpl.org](http://staging.anpl.org).
+Website for a public library serving Norwood and Westwood, Ontario. Visit [anpl.org](https://anpl.org).
 
 ### Hastings Roseneath Food Bank
 ![Hastings Roseneath Food Bank](screenshots/foodbank.jpg)

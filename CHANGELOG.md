@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.7 - 2026-03-10
+- Update ANPL library URL from staging to live anpl.org
+
 ## 1.0.5 - 2026-03-05
 - Update Hastings Food Bank URL to hastingsfoodbank.org
 

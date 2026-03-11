@@ -7,7 +7,7 @@ const sites = [
   { name: 'cabinetcraft',    url: 'http://glhiholdings.ca' },
   { name: 'mayabastian',     url: 'http://mayabastian.com' },
   { name: 'foodbank',        url: 'http://hastingsfoodbank.org' },
-  { name: 'anpl',            url: 'http://staging.anpl.org' },
+  { name: 'anpl',            url: 'https://anpl.org' },
   { name: 'subfolder',       url: 'https://subfolder.app' },
 ];
 
